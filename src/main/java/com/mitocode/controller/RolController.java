@@ -57,7 +57,7 @@ public class RolController {
 
         Resource<Rol> resource = new Resource<Rol>(rol);
         ControllerLinkBuilder linkTo = linkTo(methodOn(this.getClass()).listar());
-        resource.add(linkTo.withRel("all-signos"));
+        resource.add(linkTo.withRel("all-roles"));
         return resource;
     }
 
