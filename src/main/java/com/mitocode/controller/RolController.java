@@ -38,7 +38,7 @@ public class RolController {
         return new ResponseEntity<List<Rol>>(signos, HttpStatus.OK);
     }
 
-    @GetMapping(value="/pageable", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/pageable", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Page<Rol>> listarPageable(Pageable pageable) {
         Page<Rol> signos = null;
 
@@ -63,10 +63,11 @@ public class RolController {
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> registrar(@Valid @RequestBody Rol rol) {
-        Rol pac = new Rol();
-        pac = service.registrar(rol);
+        Rol last = service.getLast();
+        rol.setIdRol(last.getIdRol() + 1);
+        Rol rol1 = service.registrar(rol);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(pac.getIdRol()).toUri();
+                .buildAndExpand(rol1.getIdRol()).toUri();
 
         return ResponseEntity.created(location).build();
     }

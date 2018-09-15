@@ -22,6 +22,11 @@ public class RolServiceImpl implements IRolService {
     }
 
     @Override
+    public Rol getLast() {
+        return dao.getLast();
+    }
+
+    @Override
     public Rol registrar(Rol rol) {
         return dao.save(rol);
     }

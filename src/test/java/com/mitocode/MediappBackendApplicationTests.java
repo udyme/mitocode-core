@@ -24,7 +24,7 @@ public class MediappBackendApplicationTests {
 	@Test
 	public void crearUsuario() {
 		Usuario us = new Usuario();
-		us.setIdUsuario(4);
+		us.setIdUsuario(3);
 		us.setUsername("mito");
 		us.setPassword(bcrypt.encode("321"));		
 		us.setEnabled(true);

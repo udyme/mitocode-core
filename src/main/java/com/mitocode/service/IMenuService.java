@@ -21,4 +21,6 @@ public interface IMenuService {
 	List<Menu> listarMenuPorUsuario(String nombre);
 
 	Page<Menu> listarPageable(Pageable pageable);
+
+	Menu getLast();
 }

@@ -9,8 +9,7 @@ import javax.persistence.*;
 public class Menu {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idMenu;
+	private int idMenu;
 
 	@Column(name = "icono", length = 20)
 	private String icono;
@@ -25,11 +24,11 @@ public class Menu {
 	@JoinTable(name = "menu_rol", joinColumns = @JoinColumn(name = "id_menu", referencedColumnName = "idMenu"), inverseJoinColumns = @JoinColumn(name = "id_rol", referencedColumnName = "idRol"))
 	private List<Rol> roles;
 
-	public Integer getIdMenu() {
+	public int getIdMenu() {
 		return idMenu;
 	}
 
-	public void setIdMenu(Integer idMenu) {
+	public void setIdMenu(int idMenu) {
 		this.idMenu = idMenu;
 	}
 

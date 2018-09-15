@@ -63,4 +63,9 @@ public class MenuServiceImpl implements IMenuService {
 		return dao.findAll(pageable);
 	}
 
+	@Override
+	public Menu getLast() {
+		return dao.getLast();
+	}
+
 }

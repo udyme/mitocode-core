@@ -12,8 +12,7 @@ import javax.persistence.Table;
 public class Rol {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idRol;
+	private int idRol;
 
 	@Column(name = "nombre")
 	private String nombre;
@@ -21,11 +20,11 @@ public class Rol {
 	@Column(name = "descripcion")
 	private String descripcion;
 
-	public Integer getIdRol() {
+	public int getIdRol() {
 		return idRol;
 	}
 
-	public void setIdRol(Integer idRol) {
+	public void setIdRol(int idRol) {
 		this.idRol = idRol;
 	}
 
