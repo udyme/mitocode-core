@@ -86,7 +86,7 @@ public class MenuController {
     @PostMapping(value = "/rol", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> menuRol(@Valid @RequestBody MenuDTO dto) {
         Menu menu = service.listarId(dto.getIdMenu());
-        List<Rol> roles = new ArrayList<>();
+        List<Rol> roles = menu.getRoles().isEmpty()?new ArrayList<>():menu.getRoles();
         dto.getRoles().forEach(t -> {
             Rol rol = rolService.listarId(t.getIdRol());
             roles.add(rol);
