@@ -80,6 +80,13 @@ public class PacienteController {
 		return ResponseEntity.created(location).build();
 	}
 
+	@PostMapping(value = "/registrar-dialog",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Paciente> dialog(@Valid @RequestBody Paciente paciente) {
+		Paciente pac = service.registrar(paciente);
+
+		return ResponseEntity.ok(pac);
+	}
+
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> actualizar(@RequestBody Paciente paciente) {		
 		service.modificar(paciente);

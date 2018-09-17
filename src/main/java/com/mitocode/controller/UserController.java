@@ -78,13 +78,13 @@ public class UserController {
     @PostMapping(value = "/rol", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> usuarioRol(@Valid @RequestBody UsuarioDTO dto) {
         Usuario usuario = service.listarId(dto.getIdUsuario());
-        List<Rol> roles = new ArrayList<>();
+        List<Rol> roles = usuario.getRoles().isEmpty()?new ArrayList<>():usuario.getRoles();
         dto.getRoles().forEach(t -> {
             Rol rol = rolService.listarId(t.getIdRol());
             roles.add(rol);
         });
         usuario.setRoles(roles);
-        Usuario response = service.registrar(usuario);
+        Usuario response = service.modificar(usuario);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(response.getIdUsuario()).toUri();
         return ResponseEntity.created(location).build();

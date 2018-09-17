@@ -6,4 +6,5 @@ import org.springframework.data.domain.Pageable;
 
 public interface IUsuarioService  extends ICRUD<Usuario>  {
     Page<Usuario> listarPageable(Pageable pageable);
+
 }

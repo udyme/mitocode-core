@@ -92,9 +92,9 @@ public class MenuController {
             roles.add(rol);
         });
         menu.setRoles(roles);
-        Menu response = service.registrar(menu);
+         service.modificar(menu);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(response.getIdMenu()).toUri();
+                .buildAndExpand(menu.getIdMenu()).toUri();
         return ResponseEntity.created(location).build();
     }
 
